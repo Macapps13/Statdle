@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Autocomplete Example</title>
+  <style>
+    #myInput {
+      width: 300px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-bottom: none;
+    }
+
+    #suggestions {
+      position: absolute;
+      background-color: #f0f0f0;
+      border: 1px solid #ddd;
+      border-top: none;
+      z-index: 1;
+    }
+
+    #suggestions li {
+      list-style-type: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #suggestions li:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="myInput" placeholder="Search...">
+  <ul id="suggestions"></ul>
+
+  <script>
+    const input = document.getElementById("myInput");
+    const suggestions = document.getElementById("suggestions");
+    const data = ["apple", "banana", "cherry", "date", "elderberry"];
+
+    input.addEventListener("input", () => {
+      const value = input.value.toLowerCase();
+      const filteredData = data.filter(item => item.toLowerCase().startsWith(value));
+
+      suggestions.innerHTML = "";
+      filteredData.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        suggestions.appendChild(li);
+
+        li.addEventListener("click", () => {
+          input.value = item;
+          suggestions.innerHTML = "";
+        });
+      });
+    });
+  </script>
+</body>
+</html>

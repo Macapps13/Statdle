@@ -21,3 +21,26 @@ p.today{
     justify-content: center;
     top: 50px;
 }
+
+div.game{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    top: 50px;
+}
+
+input[type=text]{
+    width: 600;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    border-radius: 10px;
+    border: 3px solid grey;
+    background-image: url(basketball.png);
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    background-size: 6%;
+    padding-left: 60px;
+}
